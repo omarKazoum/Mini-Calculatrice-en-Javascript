@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #253045 !important;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  box-shadow: -6px 7px 1px #ffffff42;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: #A84C3E;
+}
+
+.calc-input {
+  color: #253045;
+  background-color: #F5E2CA;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.calc-btn {
+  border: 1px rgba(255, 255, 255, 0.19) solid;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+}
+.calc-btn--nbr {
+  background-color: #A84C3E;
+}
+.calc-btn--nbr:hover {
+  background-color: #5d2a23;
+}
+.calc-btn--operator {
+  background-color: #F27140;
+}
+.calc-btn--operator:hover {
+  background-color: #bf3e0d;
+}
+.calc-btn--clear {
+  background-color: #F27140;
+}
+.calc-btn--clear:hover {
+  background-color: #bf3e0d;
+}
+.calc-btn--equal {
+  background-color: #F27140;
+}
+.calc-btn--equal:hover {
+  background-color: #bf3e0d;
+}
+
+/*# sourceMappingURL=main.css.map */

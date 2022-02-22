@@ -1,0 +1,26 @@
+{
+  "name": "mini-calculatrice-en-javascript",
+  "version": "1.0.0",
+  "description": "\t simple calculator with js for my freelance work",
+  "main": "index.html",
+  "scripts": {
+    "test": "start index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omarKazoum/Mini-Calculatrice-en-Javascript.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "calculator"
+  ],
+  "author": "omar kazoum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omarKazoum/Mini-Calculatrice-en-Javascript/issues"
+  },
+  "homepage": "https://github.com/omarKazoum/Mini-Calculatrice-en-Javascript#readme",
+  "dependencies": {
+  }
+}

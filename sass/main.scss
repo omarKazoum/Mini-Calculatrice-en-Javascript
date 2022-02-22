@@ -1,0 +1,76 @@
+$colorCarry:#F5E2CA;
+$colorAtomicTangerine:#F59D60;
+$colorCrusta:#F27140;
+$appleBlossom:#A84C3E;
+$pickledBlueWood:#253045;
+
+$default-padding:15px;
+$font-size-normal:20px;
+
+$colorTextLight:white;
+$btn-nbr-bg:$appleBlossom;
+$btn-operator-bg:$colorCrusta;
+$btn-equal-bg:$colorCrusta;
+$calc-input-bg:$colorCarry;
+@mixin normal-text{
+  font-weight: bold;
+  font-size:$font-size-normal;
+}
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background-color:$pickledBlueWood !important;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main{
+  box-shadow: -6px 7px 1px #ffffff42;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: $appleBlossom;
+}
+.calc-input{
+  color:$pickledBlueWood;
+  background-color: $calc-input-bg;
+  @include normal-text;
+  padding: $default-padding ;
+}
+.calc-btn{
+  border:1px rgba(255, 255, 255, 0.19) solid;
+  text-align: center;
+  cursor:pointer;
+  color:$colorTextLight;
+  @include normal-text;
+  padding: $default-padding ;
+  &--nbr{
+    background-color: $btn-nbr-bg ;
+    &:hover{
+      background-color: darken($btn-nbr-bg,20%);
+    }
+  }
+  &--operator{
+    background-color: $btn-operator-bg;
+    &:hover{
+      background-color: darken($btn-operator-bg,20%);
+    }
+  }
+  &--clear{
+    background-color: $btn-operator-bg;
+    &:hover{
+      background-color: darken($btn-operator-bg,20%);
+    }
+  }
+  &--equal{
+    background-color: $btn-equal-bg;
+    &:hover{
+      background-color: darken($btn-equal-bg,20%);
+    }
+  }
+}
+
