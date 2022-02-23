@@ -6,25 +6,32 @@
 
 body {
   background-color: #253045 !important;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 main {
+  margin-top: 50px;
   box-shadow: -6px 7px 1px #ffffff42;
   border-radius: 7px;
   overflow: hidden;
   background-color: #A84C3E;
 }
 
-.calc-input {
+.active-operation, .calc-input {
   color: #253045;
   background-color: #F5E2CA;
   font-weight: bold;
   font-size: 20px;
   padding: 15px;
+}
+
+.app-title {
+  color: white;
+  background-color: #5c76a7;
+  padding: 15px;
+  margin-bottom: 0px;
 }
 
 .calc-btn {
