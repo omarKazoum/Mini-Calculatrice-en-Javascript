@@ -27,11 +27,6 @@ function operation(operator,a,b){
     }
 
 }
-
-document.getElementsByClassName('calc-btn--equal')[0].addEventListener('click',function(e){
-    //handle the click on the equal btn
-    console.log(operation('+',1,2));
-});
 /**
  * global variables to keep of the program stats
  */
