@@ -33,6 +33,8 @@ function operation(operator,a,b){
 let nbr1='';
 let nbr2='';
 let selectedOperation='';
+let result='';
+let calcInput=document.getElementsByClassName('calc-input')[0];
 const ProgressEnum={
     START:'start',
     NUMBER_1_ENTERING:'nbr1Entering',
@@ -47,7 +49,31 @@ let progress=ProgressEnum.START;
  * prints the stats so far
  */
 let printStat=()=>{
-    console.log({stats:{'first nbr':nbr1,'second nbr':nbr2,progress:progress}});
+    console.log('stats:\nfirst nbr: '+nbr1+' , second nbr: '+nbr2+' , selectedOperation: '+selectedOperation+' , result: '+result+' , progress: '+progress+'\n');
+}
+let updateInput=()=>{
+    switch(progress) {
+        case ProgressEnum.START:
+            //the first nbr is clicked on
+            calcInput.innerText='0';
+            break;
+        case ProgressEnum.NUMBER_1_ENTERING:
+            //the next number for nbr1 is clicked on
+            calcInput.innerText=nbr1;
+            break;
+        case ProgressEnum.OPERATION_CLICKED:
+            calcInput.innerText=nbr1;
+            break;
+        case ProgressEnum.NUMBER_2_ENTERING:
+            calcInput.innerText=nbr2;
+            break;
+        case ProgressEnum.EQUAL_CLICKED:
+            calcInput.innerText=result;
+            break;
+    }
+}
+let getResult=()=>{
+    return operation(selectedOperation,nbr1,nbr2);
 }
 /**
  * handels clicks on btns
@@ -68,6 +94,17 @@ let btnClicked=(e)=>{
                 nbr1=nbr1.concat(btnInnerText);
                 console.log('a has:'+nbr1);
             break;
+            case ProgressEnum.OPERATION_CLICKED:
+                progress=ProgressEnum.NUMBER_2_ENTERING;
+                nbr2=nbr2.concat(btnInnerText);
+                break;
+            case ProgressEnum.NUMBER_2_ENTERING:
+                nbr2=nbr2.concat(btnInnerText);
+                break;
+            case ProgressEnum.EQUAL_CLICKED:
+                progress=ProgressEnum.NUMBER_1_ENTERING;
+                nbr1=btnInnerText;
+                break;
         }
 
     }else if(e.target.classList.contains('calc-btn--operator')){
@@ -85,22 +122,51 @@ let btnClicked=(e)=>{
                 selectedOperation=btnInnerText;
                 break;
             case ProgressEnum.NUMBER_2_ENTERING:
-                break;
             case ProgressEnum.EQUAL_CLICKED:
+                nbr1=getResult();
+                result=nbr1;
+                nbr2='';
+                progress=ProgressEnum.OPERATION_CLICKED;
+                selectedOperation=btnInnerText;
                 break;
         }
 
     }else if(e.target.classList.contains('calc-btn--equal')){
         console.log('equal is clicked');
+        switch(progress) {
+            case ProgressEnum.START:
+                //do nothing
+                break;
+            case ProgressEnum.NUMBER_1_ENTERING:
+                //do nothing
+                progress=ProgressEnum.OPERATION_CLICKED;
+                //do nothing
+                break;
+            case ProgressEnum.OPERATION_CLICKED:
+                //do nothing
+                break;
+            case ProgressEnum.NUMBER_2_ENTERING:
+                // here we should display the result
+                progress=ProgressEnum.EQUAL_CLICKED;
+                result=operation(selectedOperation,nbr1,nbr2);
+                break;
+            case ProgressEnum.EQUAL_CLICKED:
+                //do nothing
+                break;
+        }
+
     }else if(e.target.classList.contains('calc-btn--clear')){
         console.log('clear is clicked');
+        //TODO:handle this
     }
     printStat();
-
+    updateInput();
 }
 for(let btn of document.getElementsByClassName('calc-btn'))
         btn.addEventListener('click',(e)=>{
             btnClicked(e);
         });
+
+printStat();
 
 
