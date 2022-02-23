@@ -8,6 +8,7 @@ $default-padding:15px;
 $font-size-normal:20px;
 
 $colorTextLight:white;
+$app-title-bg:lighten($pickledBlueWood,30%);
 $btn-nbr-bg:$appleBlossom;
 $btn-operator-bg:$colorCrusta;
 $btn-equal-bg:$colorCrusta;
@@ -24,22 +25,29 @@ $calc-input-bg:$colorCarry;
 
 body{
   background-color:$pickledBlueWood !important;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 main{
+  margin-top: 50px;
   box-shadow: -6px 7px 1px #ffffff42;
   border-radius: 7px;
   overflow: hidden;
   background-color: $appleBlossom;
 }
-.calc-input{
+.active-operation,.calc-input{
   color:$pickledBlueWood;
   background-color: $calc-input-bg;
   @include normal-text;
-  padding: $default-padding ;
+  padding: $default-padding;
+}
+
+.app-title{
+  color:white;
+  background-color:$app-title-bg ;
+  padding: 15px;
+  margin-bottom: 0px ;
 }
 .calc-btn{
   border:1px rgba(255, 255, 255, 0.19) solid;
