@@ -21,7 +21,7 @@ function operation(operator,a,b){
             return minus(a,b);
         case '/':
             return divide(a,b);
-        case '*':
+        case 'x':
             return multiply(a,b);
         default:throw "operator '"+operator+"' not supported";
     }
