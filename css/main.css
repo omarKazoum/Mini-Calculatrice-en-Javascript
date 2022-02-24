@@ -42,6 +42,17 @@ main {
   font-weight: bold;
   font-size: 20px;
   padding: 15px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
 }
 .calc-btn--nbr {
   background-color: #A84C3E;

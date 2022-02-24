@@ -17,6 +17,14 @@ $calc-input-bg:$colorCarry;
   font-weight: bold;
   font-size:$font-size-normal;
 }
+@mixin textSelectDisable{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; //for non prefixed
+}
 *{
   box-sizing: border-box;
   margin: 0px;
@@ -56,6 +64,7 @@ main{
   color:$colorTextLight;
   @include normal-text;
   padding: $default-padding ;
+  @include textSelectDisable;
   &--nbr{
     background-color: $btn-nbr-bg ;
     &:hover{
