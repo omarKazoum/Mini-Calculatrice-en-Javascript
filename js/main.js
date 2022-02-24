@@ -105,14 +105,15 @@ let btnClicked=(e)=>{
     if(e.target.classList.contains('calc-btn--nbr')){
         console.log(btnInnerText+" clicked has inner text "+btnInnerText);
         switch(progress) {
-            case ProgressEnum.START:
-                //the first nbr is clicked on
-                progress = ProgressEnum.NUMBER_1_ENTERING;
-                nbr1=btnInnerText;
-                break;
+
             case ProgressEnum.NUMBER_1_ENTERING:
                 //the next number for nbr1 is clicked on
-                nbr1=nbr1.concat(btnInnerText);
+
+                if(! (btnInnerText=="0")) {
+                    if(nbr2=="0")
+                        nbr2='';
+                    nbr1 = nbr1.concat(btnInnerText);
+                }
                 console.log('a has:'+nbr1);
                 break;
             case ProgressEnum.OPERATION_CLICKED:
@@ -120,7 +121,11 @@ let btnClicked=(e)=>{
                 nbr2=btnInnerText;
                 break;
             case ProgressEnum.NUMBER_2_ENTERING:
-                nbr2=nbr2.concat(btnInnerText);
+                if(!(btnInnerText=="0")) {
+                    if(nbr2=="0")
+                        nbr2='';
+                    nbr2=nbr2.concat(btnInnerText);
+                }
                 break;
             case ProgressEnum.EQUAL_CLICKED:
                 progress=ProgressEnum.NUMBER_1_ENTERING;
