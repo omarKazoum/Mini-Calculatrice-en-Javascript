@@ -116,6 +116,11 @@ let btnClicked=(e)=>{
                 }
                 console.log('a has:'+nbr1);
                 break;
+            case ProgressEnum.START:
+                //the first nbr is clicked on
+                progress = ProgressEnum.NUMBER_1_ENTERING;
+                nbr1=btnInnerText;
+                break;
             case ProgressEnum.OPERATION_CLICKED:
                 progress=ProgressEnum.NUMBER_2_ENTERING;
                 nbr2=btnInnerText;
