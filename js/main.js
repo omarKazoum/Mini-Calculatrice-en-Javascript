@@ -96,12 +96,6 @@ let updateInput=()=>{
             break;
     }
 }
-let getResult=function(){
-    try{
-        return operation(selectedOperation,nbr1,nbr2);
-    }catch (e){throw e;}
-    return 0;
-}
 /**
  * handels clicks on btns
  * @param e
@@ -148,7 +142,7 @@ let btnClicked=(e)=>{
             case ProgressEnum.EQUAL_CLICKED:
                 try{
                     progress=ProgressEnum.OPERATION_CLICKED;
-                    nbr1=getResult();
+                    nbr1=operation(selectedOperation,nbr1,nbr2);
                     result='';
                     nbr2='';
                     selectedOperation=btnInnerText;
@@ -165,7 +159,7 @@ let btnClicked=(e)=>{
                 // here we should display the result
                 progress=ProgressEnum.EQUAL_CLICKED;
                 try {
-                    result = getResult();
+                    result =operation(selectedOperation,nbr1,nbr2);
                 }catch (e){
                     progress=ProgressEnum.OPERATION_CLICKED;
                     alert(e);
