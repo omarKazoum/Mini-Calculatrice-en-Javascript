@@ -5,12 +5,18 @@
 }
 
 body {
+  height: 100vh;
   background-color: #253045 !important;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+@media (max-height: 367px) {
+  body {
+    height: initial;
+  }
+}
 main {
   margin-top: 50px;
   box-shadow: -6px 7px 1px #ffffff42;
@@ -24,6 +30,9 @@ main {
   background-color: #F5E2CA;
   font-weight: bold;
   font-size: 20px;
+}
+
+.calc-input {
   padding: 15px;
 }
 

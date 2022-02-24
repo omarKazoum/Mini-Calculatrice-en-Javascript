@@ -32,10 +32,16 @@ $calc-input-bg:$colorCarry;
 }
 
 body{
+  height: 100vh;
   background-color:$pickledBlueWood !important;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-height: 367px) {
+  body{
+    height: initial;
+  }
 }
 main{
   margin-top: 50px;
@@ -48,9 +54,11 @@ main{
   color:$pickledBlueWood;
   background-color: $calc-input-bg;
   @include normal-text;
+
+}
+.calc-input{
   padding: $default-padding;
 }
-
 .app-title{
   color:white;
   background-color:$app-title-bg ;
