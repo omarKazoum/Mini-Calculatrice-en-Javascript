@@ -4,7 +4,8 @@
   "description": "\t simple calculator with js for my freelance work",
   "main": "index.html",
   "scripts": {
-    "test": "start index.html"
+    "test": "start index.html",
+    "init-sass": "sass --watch sass/main.scss:css/main.css"
   },
   "repository": {
     "type": "git",
