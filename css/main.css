@@ -111,4 +111,39 @@ main {
   background-color: #bf3e0d;
 }
 
+#history-con {
+  bottom: 35px;
+  background-color: white;
+  width: 20%;
+  padding: 5px;
+  border-radius: 5px;
+  overflow: scroll;
+  display: none;
+}
+#history-con .history-title {
+  font-size: small;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#history-con #history-items {
+  font-size: smaller;
+}
+
+#history-con, #historyEnbleBtn {
+  left: 0px;
+  position: fixed;
+}
+
+#historyEnbleBtn {
+  bottom: 0px;
+  background-color: #F27140;
+  color: white;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+#historyEnbleBtn:hover {
+  background-color: #ef4e10;
+}
+
 /*# sourceMappingURL=main.css.map */

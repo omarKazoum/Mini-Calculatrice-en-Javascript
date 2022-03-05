@@ -50,6 +50,7 @@ let result='';
 const calcInput=document.querySelector('.calc-input');
 const activeOperation=document.querySelector('.active-operation');
 const statusView=document.querySelector('.status_view');
+const historyView=document.querySelector('#history-items');
 //reflects the states of execution flow
 const ProgressEnum={
     START:'start',
@@ -60,12 +61,14 @@ const ProgressEnum={
 }
 Object.freeze(ProgressEnum);
 let progress=ProgressEnum.START;
-
+const appendToHistory=function (text){
+    historyView.innerHTML+="<li>"+text+"</li>";
+}
 /**
  * (for debugging purposes)
  * prints the stats so far
  */
-let printStat=()=>{
+const printStat=()=>{
     console.log('stats:\nfirst nbr: '+nbr1+' , second nbr: '+nbr2+' , selectedOperation: '+selectedOperation+' , result: '+result+' , progress: '+progress+'\n');
 }
 /**
@@ -108,7 +111,8 @@ let updateInput=()=>{
  */
 let btnClicked=(e)=>{
     let btnInnerText=e.target.innerText;
-    if(e.target.classList.contains('calc-btn--nbr')){
+    if(e.target.classList.contains('calc-btn--nbr'))
+    {
         console.log(btnInnerText+" clicked has inner text "+btnInnerText);
         switch(progress) {
             case ProgressEnum.NUMBER_1_ENTERING:
@@ -143,7 +147,8 @@ let btnClicked=(e)=>{
                 nbr2="";
                 break;
         }
-    }else if(e.target.classList.contains('calc-btn--operator')){
+    }else if(e.target.classList.contains('calc-btn--operator'))
+    {
         console.log('opeartor '+e.target.innerText+' is clicked');
         switch(progress) {
             case ProgressEnum.NUMBER_1_ENTERING:
@@ -184,6 +189,7 @@ let btnClicked=(e)=>{
                 progress=ProgressEnum.EQUAL_CLICKED;
                 try {
                     result =operation(selectedOperation,nbr1,nbr2);
+                    appendToHistory(nbr1+""+selectedOperation+""+nbr2+"="+result);
                 }catch (e){
                     progress=ProgressEnum.OPERATION_CLICKED;
                     alert(e);
@@ -198,7 +204,8 @@ let btnClicked=(e)=>{
         nbr1='';
         nbr2='';
         selectedOperation='';
-    }else if(e.target.classList.contains('calc-btn--operator-dot')){
+    }else if(e.target.classList.contains('calc-btn--operator-dot'))
+    {
         console.log("dot clicked");
         switch(progress) {
             case ProgressEnum.START:
@@ -230,5 +237,13 @@ for(let btn of document.getElementsByClassName('calc-btn'))
     });
 
 //printStat();
+//show/ hide history
+let isHistoryVisible=false;
+document.querySelector('#historyEnbleBtn').addEventListener('click',(e)=>{
+        console.log('click detected');
+        e.target.value=(isHistoryVisible ? "Hide":"Show")+" history";
+        historyView.parentElement.style.display=isHistoryVisible ? "none":"block";
+        isHistoryVisible=!isHistoryVisible;
+})
 
 
