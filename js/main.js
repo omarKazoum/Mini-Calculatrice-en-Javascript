@@ -1,7 +1,7 @@
 /**
- * basic functions
+ * basic math functions
  */
-function add( a,b){
+function add(a,b){
     a=Number(a);
     b=Number(b);
     return a+b;
@@ -49,6 +49,7 @@ let selectedOperation='';
 let result='';
 let calcInput=document.getElementsByClassName('calc-input')[0];
 let activeOperation=document.getElementsByClassName('active-operation')[0];
+//reflects the states of execution flow
 const ProgressEnum={
     START:'start',
     NUMBER_1_ENTERING:'nbr1Entering',
@@ -60,11 +61,15 @@ Object.freeze(ProgressEnum);
 let progress=ProgressEnum.START;
 
 /**
+ * (for debugging purposes)
  * prints the stats so far
  */
 let printStat=()=>{
     console.log('stats:\nfirst nbr: '+nbr1+' , second nbr: '+nbr2+' , selectedOperation: '+selectedOperation+' , result: '+result+' , progress: '+progress+'\n');
 }
+/**
+ * updates the ui to reflect stored information
+ */
 let updateInput=()=>{
     switch(progress) {
         case ProgressEnum.START:
@@ -97,8 +102,7 @@ let updateInput=()=>{
     }
 }
 /**
- * handels clicks on btns
- * @param e
+ * handles clicks on all btns
  */
 let btnClicked=(e)=>{
     let btnInnerText=e.target.innerText;
