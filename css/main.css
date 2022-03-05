@@ -25,7 +25,17 @@ main {
   background-color: #A84C3E;
 }
 
-.active-operation, .calc-input {
+.active-operation {
+  margin: 0px !important;
+}
+
+.active-operation-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-operation-con, .calc-input {
   color: #253045;
   background-color: #F5E2CA;
   font-weight: bold;

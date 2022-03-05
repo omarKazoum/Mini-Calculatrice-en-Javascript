@@ -50,11 +50,18 @@ main{
   overflow: hidden;
   background-color: $appleBlossom;
 }
-.active-operation,.calc-input{
+.active-operation{
+  margin: 0px !important;
+}
+.active-operation-con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active-operation-con,.calc-input{
   color:$pickledBlueWood;
   background-color: $calc-input-bg;
   @include normal-text;
-
 }
 .calc-input{
   padding: $default-padding;
