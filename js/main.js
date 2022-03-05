@@ -112,7 +112,6 @@ let btnClicked=(e)=>{
 
             case ProgressEnum.NUMBER_1_ENTERING:
                 //the next number for nbr1 is clicked on
-
                 if(! (btnInnerText=="0")) {
                     if(nbr2=="0")
                         nbr2='';
@@ -163,6 +162,13 @@ let btnClicked=(e)=>{
                 }catch (e){
                     // so we have an arithmetic error
                     alert(e);
+                }
+                break;
+            case ProgressEnum.START:
+                if(btnInnerText=='-') {
+                    nbr1='0';
+                    selectedOperation = btnInnerText;
+                    progress=ProgressEnum.OPERATION_CLICKED;
                 }
                 break;
         }
