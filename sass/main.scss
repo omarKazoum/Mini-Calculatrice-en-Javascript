@@ -57,14 +57,25 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.active-operation-con,.calc-input{
   color:$pickledBlueWood;
   background-color: $calc-input-bg;
   @include normal-text;
 }
+.calc-input-con{
+  padding: 0px;
+  background-color: $calc-input-bg;
+}
 .calc-input{
-  padding: $default-padding;
+  margin: 0px;
+  @include normal-text;
+  padding: $default-padding/2 $default-padding $default-padding $default-padding ;
+}
+.status_view{
+  font-size: $font-size-normal*0.6;
+  margin: 0px;
+  padding-left: $default-padding;
+  min-height: 1.25em;
+  line-height: 1.25;
 }
 .app-title{
   color:white;

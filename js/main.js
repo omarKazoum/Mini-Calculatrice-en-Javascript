@@ -47,8 +47,9 @@ let nbr1='';
 let nbr2='';
 let selectedOperation='';
 let result='';
-let calcInput=document.getElementsByClassName('calc-input')[0];
-let activeOperation=document.getElementsByClassName('active-operation')[0];
+const calcInput=document.querySelector('.calc-input');
+const activeOperation=document.querySelector('.active-operation');
+const statusView=document.querySelector('.status_view');
 //reflects the states of execution flow
 const ProgressEnum={
     START:'start',
@@ -88,7 +89,7 @@ let updateInput=()=>{
             activeOperation.innerText=' ';
             break;
         case ProgressEnum.OPERATION_CLICKED:
-            calcInput.innerText=nbr1;
+            calcInput.innerText="0";
             activeOperation.innerText=selectedOperation;
             break;
         case ProgressEnum.NUMBER_2_ENTERING:
@@ -100,6 +101,7 @@ let updateInput=()=>{
             activeOperation.innerText="=";
             break;
     }
+    statusView.textContent=nbr1+""+selectedOperation+""+nbr2;
 }
 /**
  * handles clicks on all btns
@@ -109,7 +111,6 @@ let btnClicked=(e)=>{
     if(e.target.classList.contains('calc-btn--nbr')){
         console.log(btnInnerText+" clicked has inner text "+btnInnerText);
         switch(progress) {
-
             case ProgressEnum.NUMBER_1_ENTERING:
                 //the next number for nbr1 is clicked on
                 if(! (btnInnerText=="0")) {
@@ -127,6 +128,7 @@ let btnClicked=(e)=>{
             case ProgressEnum.OPERATION_CLICKED:
                 progress=ProgressEnum.NUMBER_2_ENTERING;
                 nbr2=btnInnerText;
+
                 break;
             case ProgressEnum.NUMBER_2_ENTERING:
                 if(!(btnInnerText=="0")) {
@@ -138,6 +140,7 @@ let btnClicked=(e)=>{
             case ProgressEnum.EQUAL_CLICKED:
                 progress=ProgressEnum.NUMBER_1_ENTERING;
                 nbr1=btnInnerText;
+                nbr2="";
                 break;
         }
     }else if(e.target.classList.contains('calc-btn--operator')){
@@ -155,7 +158,7 @@ let btnClicked=(e)=>{
             case ProgressEnum.EQUAL_CLICKED:
                 try{
                     progress=ProgressEnum.OPERATION_CLICKED;
-                    nbr1=operation(selectedOperation,nbr1,nbr2);
+                    nbr1=result;
                     result='';
                     nbr2='';
                     selectedOperation=btnInnerText;
@@ -172,7 +175,8 @@ let btnClicked=(e)=>{
                 }
                 break;
         }
-    }else if(e.target.classList.contains('calc-btn--equal')){
+    }else if(e.target.classList.contains('calc-btn--equal'))
+    {
         console.log('equal is clicked');
         switch(progress) {
             case ProgressEnum.NUMBER_2_ENTERING:
@@ -187,7 +191,8 @@ let btnClicked=(e)=>{
                 break;
         }
 
-    }else if(e.target.classList.contains('calc-btn--clear')){
+    }else if(e.target.classList.contains('calc-btn--clear'))
+    {
         console.log('clear is clicked');
         progress=ProgressEnum.START;
         nbr1='';
