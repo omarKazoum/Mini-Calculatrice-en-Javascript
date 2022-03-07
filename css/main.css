@@ -114,8 +114,9 @@ main {
 #history-con {
   bottom: 35px;
   background-color: white;
-  width: 20%;
   padding: 5px;
+  width: 80%;
+  margin: auto;
   border-radius: 5px;
   overflow: scroll;
   display: none;

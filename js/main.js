@@ -163,6 +163,7 @@ let btnClicked=(e)=>{
             case ProgressEnum.EQUAL_CLICKED:
                 try{
                     progress=ProgressEnum.OPERATION_CLICKED;
+                    result=operation(selectedOperation,nbr1,nbr2);
                     nbr1=result;
                     result='';
                     nbr2='';
